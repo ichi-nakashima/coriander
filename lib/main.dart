@@ -12,14 +12,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-//      home: MyHomePage(title: 'Flutter Demo Home Page'),
-      initialRoute: '/',
-      routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => MyHomePage(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
-        '/next': (context) => NextPage(),
-      },
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+//      initialRoute: '/',
+//      routes: {
+//        // When navigating to the "/" route, build the FirstScreen widget.
+//        '/': (context) => MyHomePage(),
+//        // When navigating to the "/second" route, build the SecondScreen widget.
+//        '/next': (context) => NextPage(),
+//      },
     );
   }
 }
@@ -42,27 +42,31 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  String text = "次へ";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
 //        title: Text(widget.title),
-        title: Text("KBOYのFlutter大学"),
+        title: Text("ぞい！ぞい！Flutter"),
       ),
       body: Center(
         child: RaisedButton(
-            child: Text('次へ'),
-            onPressed: () {
-              // 画面遷移のコード
-              Navigator.pushNamed(context, '/next');
-//            Navigator.push(
-//              context,
-//              MaterialPageRoute(
-//                builder: (context) => NextPage(),
-//              ),
-//            );
-//          },
-            }),
+          child: Text(text),
+          onPressed: () async {
+            // 画面遷移のコード
+//              Navigator.pushNamed(context, '/next');
+            final result = await Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NextPage('ichinaka'),
+              ),
+            );
+            text = result;
+            print(result);
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
