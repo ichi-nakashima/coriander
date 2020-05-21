@@ -57,26 +57,58 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Container(
+              width: double.infinity,
+              child: Text(
+                'ichinakaさん',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 40,
+//                color: Colors.deepPurple,
+//                fontWeight: FontWeight.w500,
+//                fontStyle: FontStyle.italic,
+//                decoration: TextDecoration.underline,
+                  foreground: Paint()
+                    ..style = PaintingStyle.stroke
+                    ..strokeWidth = 6
+                    ..color = Colors.deepPurple,
+                ),
+              ),
+            ),
+            DefaultTextStyle(
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.purple,
+              ),
+              child: Column(
+                children: <Widget>[
+                  Text('ジーコさん'),
+                  Text('ジーコさん'),
+                  Text('ジーコさん'),
+                ],
+              ),
+            ),
+            Text('ジーコさん'),
 //            Image.asset('images/IMG_2186.jpeg'),
-            Icon(
-              Icons.directions_car,
-              size: 60,
-            ),
-            RaisedButton(
-              child: Text(text),
-              onPressed: () async {
-                // 画面遷移のコード
-//              Navigator.pushNamed(context, '/next');
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => NextPage('ichinaka'),
-                  ),
-                );
-                text = result;
-                print(result);
-              },
-            ),
+//            Icon(
+//              Icons.directions_car,
+//              size: 60,
+//            ),
+//            RaisedButton(
+//              child: Text(text),
+//              onPressed: () async {
+//                // 画面遷移のコード
+////              Navigator.pushNamed(context, '/next');
+//                final result = await Navigator.push(
+//                  context,
+//                  MaterialPageRoute(
+//                    builder: (context) => NextPage('ichinaka'),
+//                  ),
+//                );
+//                text = result;
+//                print(result);
+//              },
+//            ),
           ],
         ),
       ),
