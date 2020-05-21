@@ -12,7 +12,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+//      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => MyHomePage(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/next': (context) => NextPage(),
+      },
     );
   }
 }
@@ -44,17 +51,18 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: RaisedButton(
-          child: Text('次へ'),
-          onPressed: () {
-            // 画面遷移のコード
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => NextPage(),
-              ),
-            );
-          },
-        ),
+            child: Text('次へ'),
+            onPressed: () {
+              // 画面遷移のコード
+              Navigator.pushNamed(context, '/next');
+//            Navigator.push(
+//              context,
+//              MaterialPageRoute(
+//                builder: (context) => NextPage(),
+//              ),
+//            );
+//          },
+            }),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
