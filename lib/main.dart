@@ -44,6 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String text = "次へ";
 
+  final myFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,63 +56,80 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Text(
-                'ichinakaさん',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 40,
-//                color: Colors.deepPurple,
-//                fontWeight: FontWeight.w500,
-//                fontStyle: FontStyle.italic,
-//                decoration: TextDecoration.underline,
-                  foreground: Paint()
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 6
-                    ..color = Colors.deepPurple,
-                ),
+            TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+                hintText: '田中太郎',
               ),
             ),
-            DefaultTextStyle(
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.purple,
-              ),
-              child: Column(
-                children: <Widget>[
-                  Text('ジーコさん'),
-                  Text('ジーコさん'),
-                  Text('ジーコさん'),
-                ],
-              ),
+            TextField(
+              focusNode: myFocusNode,
             ),
-            Text('ジーコさん'),
-//            Image.asset('images/IMG_2186.jpeg'),
-//            Icon(
-//              Icons.directions_car,
-//              size: 60,
-//            ),
-//            RaisedButton(
-//              child: Text(text),
-//              onPressed: () async {
-//                // 画面遷移のコード
-////              Navigator.pushNamed(context, '/next');
-//                final result = await Navigator.push(
-//                  context,
-//                  MaterialPageRoute(
-//                    builder: (context) => NextPage('ichinaka'),
-//                  ),
-//                );
-//                text = result;
-//                print(result);
-//              },
-//            ),
+            RaisedButton(
+              child: Text('フォーカス'),
+              onPressed: () => myFocusNode.requestFocus(),
+            ),
           ],
         ),
+//        child: Column(
+//          mainAxisAlignment: MainAxisAlignment.center,
+//          crossAxisAlignment: CrossAxisAlignment.center,
+//          children: <Widget>[
+//            Container(
+//              width: double.infinity,
+//              child: Text(
+//                'ichinakaさん',
+//                textAlign: TextAlign.center,
+//                style: TextStyle(
+//                  fontSize: 40,
+////                color: Colors.deepPurple,
+////                fontWeight: FontWeight.w500,
+////                fontStyle: FontStyle.italic,
+////                decoration: TextDecoration.underline,
+//                  foreground: Paint()
+//                    ..style = PaintingStyle.stroke
+//                    ..strokeWidth = 6
+//                    ..color = Colors.deepPurple,
+//                ),
+//              ),
+//            ),
+//            DefaultTextStyle(
+//              style: TextStyle(
+//                fontSize: 20,
+//                color: Colors.purple,
+//              ),
+//              child: Column(
+//                children: <Widget>[
+//                  Text('ジーコさん'),
+//                  Text('ジーコさん'),
+//                  Text('ジーコさん'),
+//                ],
+//              ),
+//            ),
+//            Text('ジーコさん'),
+////            Image.asset('images/IMG_2186.jpeg'),
+////            Icon(
+////              Icons.directions_car,
+////              size: 60,
+////            ),
+////            RaisedButton(
+////              child: Text(text),
+////              onPressed: () async {
+////                // 画面遷移のコード
+//////              Navigator.pushNamed(context, '/next');
+////                final result = await Navigator.push(
+////                  context,
+////                  MaterialPageRoute(
+////                    builder: (context) => NextPage('ichinaka'),
+////                  ),
+////                );
+////                text = result;
+////                print(result);
+////              },
+////            ),
+//          ],
+//        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
