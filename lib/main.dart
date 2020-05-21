@@ -51,21 +51,33 @@ class _MyHomePageState extends State<MyHomePage> {
 //        title: Text(widget.title),
         title: Text("ぞい！ぞい！Flutter"),
       ),
-      body: Center(
-        child: RaisedButton(
-          child: Text(text),
-          onPressed: () async {
-            // 画面遷移のコード
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+//            Image.asset('images/IMG_2186.jpeg'),
+            Icon(
+              Icons.directions_car,
+              size: 60,
+            ),
+            RaisedButton(
+              child: Text(text),
+              onPressed: () async {
+                // 画面遷移のコード
 //              Navigator.pushNamed(context, '/next');
-            final result = await Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => NextPage('ichinaka'),
-              ),
-            );
-            text = result;
-            print(result);
-          },
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NextPage('ichinaka'),
+                  ),
+                );
+                text = result;
+                print(result);
+              },
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

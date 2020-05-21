@@ -20,16 +20,20 @@ class NextPage extends StatelessWidget {
             children: <Widget>[
               Text(name),
               Center(
-                child: RaisedButton(
-                  child: Text('戻る'),
-                  onPressed: () {
-                    // return page
-                    Navigator.pop(context, 'ichinakaかっこいい'
+                child: Column(
+                  children: <Widget>[
+                    RaisedButton(
+                      child: Text('戻る'),
+                      onPressed: () {
+                        // return page
+                        Navigator.pop(context, 'Fukuro かっこいい'
 //                  MaterialPageRoute(
 //                    builder: (context) => NextPage(),
 //                  ),
-                        );
-                  },
+                            );
+                      },
+                    ),
+                  ],
                 ),
               ),
             ],
