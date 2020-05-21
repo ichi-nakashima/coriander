@@ -1,3 +1,4 @@
+import 'package:coriander/next_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -9,7 +10,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -41,30 +41,19 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
 //        title: Text(widget.title),
         title: Text("KBOYのFlutter大学"),
-        actions: <Widget>[
-          Icon(Icons.add),
-          Icon(Icons.share)],
       ),
-      body: Container(
-        height: double.infinity,
-        color: Colors.red,
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Row(
-//          mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('↑とてもわかる'),
-              Text('↑とてもわかる'),
-              Text('↑とてもわかる'),
-//            Text('↑とてもわかる'),
-//            Text('↑とてもわかる'),
-//            Text('↑とてもわかる'),
-//            Text(
-//              '$_counter',
-//              style: Theme.of(context).textTheme.display1,
-//            ),
-            ],
-          ),
+      body: Center(
+        child: RaisedButton(
+          child: Text('次へ'),
+          onPressed: () {
+            // 画面遷移のコード
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NextPage(),
+              ),
+            );
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
