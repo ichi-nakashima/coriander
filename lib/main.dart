@@ -46,6 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final myFocusNode = FocusNode();
 
+  String name;
+
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,13 +66,32 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: InputDecoration(
                 hintText: '田中太郎',
               ),
+              onChanged: (text) {
+                name = text;
+                print("First text field: $text");
+              },
             ),
             TextField(
+              controller: myController,
               focusNode: myFocusNode,
+              decoration: InputDecoration(
+                hintText: 'パスワード',
+              ),
             ),
             RaisedButton(
               child: Text('フォーカス'),
-              onPressed: () => myFocusNode.requestFocus(),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      // Retrieve the text the user has entered by using the
+                      // TextEditingController.
+                      content: Text(name),
+                    );
+                  },
+                );
+              },
             ),
           ],
         ),
