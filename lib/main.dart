@@ -34,21 +34,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  String text = "次へ";
-
-  final myFocusNode = FocusNode();
-
-  String name;
-
-  final myController = TextEditingController();
+  final items = List<String>.generate(10000, (i) => "ichinaka $i");
 
   @override
   Widget build(BuildContext context) {
@@ -59,106 +45,47 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: Column(
+        child: ListView(
+          // This next line does the trick.
+          scrollDirection: Axis.vertical,
           children: <Widget>[
-            TextField(
-              autofocus: true,
-              decoration: InputDecoration(
-                hintText: '田中太郎',
-              ),
-              onChanged: (text) {
-                name = text;
-                print("First text field: $text");
-              },
+//            Column(
+//              children: <Widget>[
+//                Expanded(
+//                  child: Image.network(
+//                      'https://connpass-tokyo.s3.amazonaws.com/user/313720/3df4a3856ec741459c93d66e8f3dd03a.jpeg'),
+//                ),
+//                Text('ichinaka'),
+//              ],
+//            ),
+            Container(
+              width: 160.0,
+              height: 88,
+              color: Colors.red,
             ),
-            TextField(
-              controller: myController,
-              focusNode: myFocusNode,
-              decoration: InputDecoration(
-                hintText: 'パスワード',
-              ),
+            Container(
+              width: 160.0,
+              height: 88,
+              color: Colors.blue,
             ),
-            RaisedButton(
-              child: Text('フォーカス'),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      // Retrieve the text the user has entered by using the
-                      // TextEditingController.
-                      content: Text(name),
-                    );
-                  },
-                );
-              },
+            Container(
+              width: 160.0,
+              height: 88,
+              color: Colors.green,
+            ),
+            Container(
+              width: 160.0,
+              height: 88,
+              color: Colors.yellow,
+            ),
+            Container(
+              width: 160.0,
+              height: 88,
+              color: Colors.orange,
             ),
           ],
         ),
-//        child: Column(
-//          mainAxisAlignment: MainAxisAlignment.center,
-//          crossAxisAlignment: CrossAxisAlignment.center,
-//          children: <Widget>[
-//            Container(
-//              width: double.infinity,
-//              child: Text(
-//                'ichinakaさん',
-//                textAlign: TextAlign.center,
-//                style: TextStyle(
-//                  fontSize: 40,
-////                color: Colors.deepPurple,
-////                fontWeight: FontWeight.w500,
-////                fontStyle: FontStyle.italic,
-////                decoration: TextDecoration.underline,
-//                  foreground: Paint()
-//                    ..style = PaintingStyle.stroke
-//                    ..strokeWidth = 6
-//                    ..color = Colors.deepPurple,
-//                ),
-//              ),
-//            ),
-//            DefaultTextStyle(
-//              style: TextStyle(
-//                fontSize: 20,
-//                color: Colors.purple,
-//              ),
-//              child: Column(
-//                children: <Widget>[
-//                  Text('ジーコさん'),
-//                  Text('ジーコさん'),
-//                  Text('ジーコさん'),
-//                ],
-//              ),
-//            ),
-//            Text('ジーコさん'),
-////            Image.asset('images/IMG_2186.jpeg'),
-////            Icon(
-////              Icons.directions_car,
-////              size: 60,
-////            ),
-////            RaisedButton(
-////              child: Text(text),
-////              onPressed: () async {
-////                // 画面遷移のコード
-//////              Navigator.pushNamed(context, '/next');
-////                final result = await Navigator.push(
-////                  context,
-////                  MaterialPageRoute(
-////                    builder: (context) => NextPage('ichinaka'),
-////                  ),
-////                );
-////                text = result;
-////                print(result);
-////              },
-////            ),
-//          ],
-//        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
