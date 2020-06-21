@@ -1,3 +1,4 @@
+import 'package:coriander/book_list_page.dart';
 import 'package:coriander/main_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         create: (_) => MainModel(),
         child: Scaffold(
           appBar: AppBar(
-            title: Text('コリアンダー'),
+            title: Text('本一覧'),
           ),
           body: Consumer<MainModel>(builder: (context, model, child) {
             return Center(
@@ -28,7 +29,10 @@ class MyApp extends StatelessWidget {
                   RaisedButton(
                     child: Text('ボタン'),
                     onPressed: () {
-                      model.changeIchinakaText();
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BookListPage()),
+                      );
                     },
                   ),
                 ],
