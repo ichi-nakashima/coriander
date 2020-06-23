@@ -1,9 +1,9 @@
-import 'package:coriander/book_list_page.dart';
-import 'package:coriander/main_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+import 'main_model.dart';
+
+void presentation.main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
