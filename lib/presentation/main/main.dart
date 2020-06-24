@@ -1,9 +1,10 @@
+import 'package:coriander/presentation/book_list/book_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'main_model.dart';
 
-void presentation.main() => runApp(MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
         create: (_) => MainModel(),
         child: Scaffold(
           appBar: AppBar(
-            title: Text('本一覧'),
+            title: Text('トップページ'),
           ),
           body: Consumer<MainModel>(builder: (context, model, child) {
             return Center(
