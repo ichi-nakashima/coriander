@@ -1,4 +1,4 @@
-import 'package:coriander/presentation/book_list/book_list_page.dart';
+import 'package:coriander/presentation/signup_page/singup_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => BookListPage()),
+                        MaterialPageRoute(builder: (context) => SingUpPage()),
                       );
                     },
                   ),
