@@ -1,20 +1,20 @@
-import 'package:coriander/presentation/signup_page/singup_model.dart';
+import 'package:coriander/presentation/login/login_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SingUpPage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mailController = TextEditingController();
     final passwordController = TextEditingController();
 
-    return ChangeNotifierProvider<SingUpModel>(
-      create: (_) => SingUpModel(),
+    return ChangeNotifierProvider<LoginModel>(
+      create: (_) => LoginModel(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text('サインアップ'),
+          title: Text('ログイン'),
         ),
-        body: Consumer<SingUpModel>(builder: (context, model, child) {
+        body: Consumer<LoginModel>(builder: (context, model, child) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -39,11 +39,11 @@ class SingUpPage extends StatelessWidget {
                   },
                 ),
                 RaisedButton(
-                  child: Text('登録する'),
+                  child: Text('ログインする'),
                   onPressed: () async {
                     try {
-                      await model.singUp();
-                      _showDaialog(context, '登録完了しました');
+                      await model.login();
+                      _showDaialog(context, 'ログインしました');
                     } catch (e) {
                       _showDaialog(context, e.toString());
                     }
